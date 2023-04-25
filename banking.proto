@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message MsgRequest {
+	int32 dest = 1;
+	string interface = 2;
+	int32 money = 3;
+	string type = 4;
+	repeated int32 writeSets = 5;
+}
+
+message MsgResponse {
+	string interface = 1;
+	int32 money = 2;
+	repeated int32 writeSets = 3;
+}
+
+service Bank {
+	rpc MsgDelivery(MsgRequest) returns (MsgResponse) {}
+}  
